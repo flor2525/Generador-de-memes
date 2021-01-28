@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Alatsi&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Alatsi&family=Carme&family=Pompiere&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Generador de Memes</title>
 </head>
 <body>
@@ -46,10 +46,10 @@
                         <i class="fas fa-font"></i>
                         Texto
                     </button>
-                    <button id="boton-modo-claro">
+                    <!-- <button id="boton-modo-claro">
                         <i class="far fa-lightbulb"></i>
                         Modo claro
-                    </button>
+                    </button> -->
                     <button id= "boton-modo-oscuro">
                         <i class="fas fa-lightbulb"></i>
                         Modo oscuro
@@ -73,32 +73,32 @@
         </main>
 
         <aside class="aside">
+                <h3 class="cierre-aside" id="cierra-aside">X</h3>
 
             <!-- PROPIEDADES DE TEXTO -->
 
-            <form class="texto">
-                <h1>TEXTO</h1>
+            <!-- <form class="formulario texto">
+                <h2>TEXTO</h2>
                 <div>
                     <label for="top-input">Superior</label>
-                    <input type="text" id="top-input" value="TOP TEXT">
+                    <input type="text" id="top-input" value="TOP TEXT" class="input-texto">
                 </div>
-                <div>
+                <div class="sin-texto-check">
                     <input type="checkbox" id="top-check">
                     <label for="top-check">Sin texto superior</label>
                 </div>
     
-                <div>
-                    <label for="bottom">Inferior</label>
-                    <input type="text" id="bottom" value="TOP TEXT">
+                <div >
+                    <label for="bottom">inferior</label>
+                    <input type="text" id="bottom" value="TOP TEXT" class="input-texto">
                 </div>
-                <div>
+                <div class="sin-texto-check">
                     <input type="checkbox" id="bottom-check">
                     <label for="bottom-check">Sin texto inferior</label>
                 </div>
-    
-                <div>
+                <div class="fuente">
                     <label for="option">Fuente</label>
-                    <select name="option" id="option">
+                    <select name="option" id="option" class="selector">
                         <option value="arial">Arial</option>
                         <option value="arial black">Arial Black</option>
                         <option value="american type writer">American Type Writer</option>
@@ -108,36 +108,43 @@
                         <option value="impact">Impact</option>
                     </select>
                 </div>
-    
-                <div>
+                <div class= "propiedades-letra">
                     <input id="input-size" type="number" value="40">
-                    <button id="izquierda">I</button>
-                    <button id="center">C</button>
-                    <button id="right">D</button>
-                </div>
-                <div> 
-                    <div>
-                        <label for="color">Color</label>
-                        <input type="color" id="color" value="#00000">
-                        <span>#00000</span>
+                    <div class="botones-alineacion">
+                        <button id="izquierda" class="boton-alineacion">I</button>
+                        <button id="centro" class="boton-alineacion">C</button>
+                        <button id="derecha" class="boton-alineacion">D</button>
                     </div>
-    
-                    <div>
-                        <label for="fondo">Color</label>
-                        <input type="color" id="fondo" value="#fffff">
-                        <span>#fffff</span>
+                </div>
+                <div class="fila color-fondo"> 
+                    <div class="columna">
+                        <label for="color">COLOR</label>
+                        <div class="fila color">
+                            <input type="color" id="color" value="#FFFFF">
+                            <span>#00000</span>
+                        </div>
+                    </div>
+                    <div class="columna">
+                        <label for="fondo">FONDO</label>
+                        <div class="fila color">
+                            <input type="color" id="fondo" value="#FFFFFF">
+                            <span>#fffff</span>
+                        </div>
+                    </div>
                 </div>
     
-                <div>
-                    <label for="chechbox">Fondo transparente</label>
+                <div class="sin-fondo-check">
                     <input type="checkbox" id="checkbox">
+                    <label for="chechbox">Fondo transparente</label>
                 </div>
     
-                <div>
-                    <label>Contorno</label>
-                    <button id="sin-contorno">Ninguno</button>
-                    <button id="contorno-claro">Claro</button>
-                    <button id="contorno-oscuro">Oscuro</button>
+                <div class="columna">
+                    <h3>Contorno</h3>
+                    <div class="botones-contorno">
+                        <button id="sin-contorno" class="boton-contorno">Ninguno</button>
+                        <button id="contorno-claro" class="boton-contorno">Claro</button>
+                        <button id="contorno-oscuro" class="boton-contorno">Oscuro</button>
+                    </div>
                 </div>
     
                 <div>
@@ -147,7 +154,7 @@
     
                 <div>
                     <label for="interlineado">Interlineado</label>
-                    <select name="interlineado" id="interlineado">
+                    <select name="interlineado" id="interlineado" class="selector">
                         <option value="0.8">0.8</option>
                         <option value="1">1</option>
                         <option value="1.2">1.2</option>
@@ -156,25 +163,25 @@
                         <option value="2.5">2.5</option>
                     </select>
                 </div>
-            </form>
+            </form> -->
 
             <!-- PROPIEDADES DE IMAGEN -->
-            <form class="imagen">
-                <h1>IMAGEN</h1>
+            <form class="formulario imagen">
+                <h2>IMAGEN</h2>
                 <div>
                     <label for="url">URL</label>
-                    <input type="url" id="url">
+                    <input type="url" id="url" class="input-texto">
                 </div>
+                <h3>FONDO</h3>
                 <div class="fila">
-                    <h3>FONDO</h3>
-                    <div>
+                    <div class="fila color">
                         <label for="fondo"></label>
                         <input type="color" id="fondo" value="#00000">
-                        <span>#00000</span>
+                        <span>#FFFFFF</span>
                     </div>
                     <div>
                         <label for="propiedad-fondo"></label>
-                        <select name="propiedad-fondo" id="propiedad-fondo">
+                        <select name="propiedad-fondo" id="propiedad-fondo" class="selector">
                             <option>Ninguno</option>
                             <option>Aclarar</option>
                             <option>Oscurecer</option>
@@ -186,45 +193,44 @@
                 </div>
                 <div class="contenedor-rangos">
                     <h3>FILTROS</h3>
-                    <div>
+                    <div class="columna">
                         <label for="brillo">BRILLO</label>
-                         <input type="range" id="brillo" min="0" max="1" step="0.1">
+                         <input type="range" id="brillo" class="input-rango" min="0" max="1" value="1" step="0.1">
                     </div>
-                    <div>
+                    <div class="columna">
                         <label for="opacidad">OPACIDAD</label>
-                        <input type="range" id="opacidad" min="0" max="1" step="0.1">
+                        <input type="range" id="opacidad" class="input-rango" min="0" max="1" value="1" step="0.1">
                     </div>
-                    <div>
+                    <div class="columna">
                         <label for="contraste">CONTRASTE</label>
-                        <input type="range" id="contraste" min="0" max="1" step="0.1">
+                        <input type="range" id="contraste" class="input-rango" min="100" max="1000" value="100" step="0.1">
                     </div>
-                     <div>
+                     <div class="columna">
                         <label for="desenfoque">DESENFOQUE</label>
-                        <input type="range" id="desenfoque" min="0" max="1" step="0.1">
+                        <input type="range" id="desenfoque" class="input-rango" min="0" max="10" value="0" step="0.1">
                     </div>
-                    <div>
+                    <div class="columna">
                         <label for="grises">ESCALA DE GRISES</label>
-                        <input type="range" id="grises" min="0" max="1" step="0.1">
+                        <input type="range" id="grises" class="input-rango" min="0" max="100" value="0" step="0.1">
                     </div>
-                    <div>
+                    <div class="columna">
                         <label for="sepia">SEPIA</label>
-                        <input type="range" id="sepia" min="0" max="1" step="0.1">
+                        <input type="range" id="sepia" class="input-rango" min="0" max="100" value="0" step="0.1">
                     </div>
-                    <div>
+                    <div class="columna">
                          <label for="hue">HUE</label>
-                         <input type="range" id="hue" min="0" max="1" step="0.1">
+                         <input type="range" id="hue" class="input-rango" min="0" max="360" value="0" step="0.1">
                     </div>
-                    <div>
+                    <div class="columna">
                         <label for="saturado">SATURADO</label>
-                        <input type="range" id="saturado" min="0" max="1" step="0.1">
+                        <input type="range" id="saturado" class="input-rango" min="100" max="1000" value="100" step="0.1">
                     </div>
-                    <div>
+                    <div class="columna">
                         <label for="negativo">NEGATIVO</label>
-                        <input type="range" id="negativo min="0" max="1" step="0.1">
+                        <input type="range" id="negativo" class="input-rango" min="0" max="1" value="0" step="0.1">
                     </div>       
                 </div>
                 <button class="boton-reestablecer">Reestablecer filtros</button>
-
             </form>
             
         </aside>

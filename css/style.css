@@ -114,7 +114,6 @@ justify-content: center;
     width: 20%;
     position: absolute;
     height: 100vh;
-    /* float: right; */
     background-color: #202020;
     color: #fafafa;
     font-family: 'Carme', sans-serif;
@@ -122,4 +121,164 @@ justify-content: center;
     justify-self: flex-end;
     /* display: none; */
 }
+
+.cierre-aside{
+    text-align: right;
+    padding: 1rem;
+    font-size: 20px;
+}
+
+/* INICIO ESTILOS FORMULARIOS*/
+
+/* inicio estilos comunes */
+
+.formulario{
+    margin: 1rem;
+}
+
+.formulario h2{
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 20px;
+}
+
+.formulario h3{
+    font-size: 15px;
+    margin: 1rem 0;
+}
+
+.input-texto, input[type=number]{
+    background-color: rgb(70, 70, 70);
+    color: #fafafa;
+    width: 100%;
+    height: 8px;
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 15px;
+    margin-bottom: 5%;
+    margin-top: 10px;
+    outline-style: none;
+}
+
+.columna{
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.9rem;
+
+}
+
+.columna label{
+    font-size: 12px;
+}
+
+.fila{
+    display: flex;
+    justify-content: space-between; 
+}
+
+.color span{
+    margin-left: 10px;
+}
+
+.color input{
+    width: 40px;
+    /* border-radius: 50px; */
+    /* height: 30px; */
+    background-color: transparent;
+    border: none;
+    /* color: #FFFFFF; */
+    outline-style: none;
+
+}
+
+.selector{
+    background-color: rgb(70, 70, 70);
+    outline-style: none;
+    border: none;
+    width: 100%;
+    height: 8px;
+    padding: 10px;
+    margin-top: 10px;
+}
+/* fin estilos comunes*/
+
+/* inicio estilos formulario imagen */
+
+.input-rango{
+    outline-style: none;
+    height: 8px;
+    width: 100%;
+    margin: 4px 0;
+    background-color: rgb(70, 70, 70);
+    border-radius: 50px;
+    -webkit-appearance: none;
+}
+
+.boton-reestablecer{
+    padding: 0.7rem;
+    margin-top: 15px;
+    color: #fafafa;
+    background-color: rgb(70, 70, 70);
+    outline: none;
+    border: none;
+}
+
+.boton-reestablecer:focus{
+    background-color: rgb(104, 103, 103);
+}
+
+
+/* inicio estilos formulario imagen */
+
+
+/* inicio estilos formulario texto */
+
+.sin-texto-check, .sin-fondo-check, .fuente{
+    margin-bottom: 1rem;
+}
+.sin-texto-check label{
+    font-size: 14px;
+}
+
+.tamano-letra{
+    width: 20px;
+}
+
+.propiedades-letra{
+    display: flex;
+    justify-content: space-between;
+}
+
+.propiedades-letra input{
+    width: 60%;
+}
+
+.boton-alineacion{
+    padding: 6px;
+    background-color: #FAFAFA;
+    outline-style: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.color-fondo{
+    margin-bottom: 1rem;
+}
+
+.botones-contorno{
+margin-bottom: 1rem;
+}
+
+
+.boton-contorno{
+   padding: 3px;
+   background-color: #FAFAFA;
+   outline-style: none;
+   border: none;
+   border-radius: 5px;
+}
+
+
+/* fin estilos formulario texto */
+
 

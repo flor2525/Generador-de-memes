@@ -1,3 +1,32 @@
+
+
+/* VARIABLES DE COLORES */
+
+/* Modo oscuro */
+
+:root{
+    --ColorEncabezado: #121212;
+    --ColorSeccionMeme: #2A3B47;
+    --ColorAside: #202020;
+    --ColorFuente: #fafafa;
+    --ColorFormulario: rgb(70, 70, 70);
+
+}
+
+
+
+
+/* Modo claro */
+
+
+
+
+
+
+
+
+/* INICIO ESTILOS GENERALES */
+
 *{
     padding: 0;
     margin: 0;
@@ -10,12 +39,14 @@ body{
     flex-direction: row-reverse;
 }
 
+/* FIN ESTILOS GENERALES */
+
 /* INICIO ESTILOS HEADER */
 
 .header{
     width: 100%;
     height: 15vh;
-    background-color: #121212;
+    background-color: var(--ColorEncabezado);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,21 +55,23 @@ body{
 }
 
 .titular{
-    color: #fafafa;
+    color: var(--ColorFuente);
     font-size: 2.5rem;
     padding-bottom: 15px;
 }
 
 .boton-container{
-    display: flex;   
+    display: flex;
+    flex-flow: row wrap;
+    width: auto;   
 }
 
 .boton-container button{
     font-size: 1rem;
-    color: #fafafa;
+    color: var(--ColorFuente);
     outline: none;
     border: none;
-    background-color: #121212;
+    background-color: var(--ColorEncabezado);
     margin: 10px;
     cursor: pointer;
     padding: 0.2rem;
@@ -48,6 +81,9 @@ body{
     background-color: #2e2d2d;
 }
 
+.boton-modo-claro{
+    display: none;
+}
 /* FIN ESTILOS HEADER */
 
 /* INICIO ESTILOS SECCIÓN MEME */
@@ -56,7 +92,7 @@ body{
     /* float: left; */
     width: 100%;
     height: 100vh;
-    background-color:#2A3B47;
+    background-color: var(--ColorSeccionMeme);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,22 +108,29 @@ body{
 }
 
 .texto-superior, .texto-inferior{
-flex: 1 1 auto;
+flex: 1 1 15%;
 font-family: 'Alatsi', sans-serif;
-background-color: #fafafa;
+background-color: var(--ColorFuente);
 display: flex;
 align-items: center;
 justify-content: center;
 }
 
-.meme-imagen{
-    flex: 4 1 auto;
-    background-color: black;
 
+.meme-imagen{
+    flex: 4 1 70%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+
+.imagen-adaptada{
+    width: 100%;
+    height: 100%;
 }
 
 .texto-superior p, .texto-inferior p{
-    color: #121212;
+    color: black;
     font-size: 40px;
     text-transform: uppercase;
 }
@@ -95,7 +138,7 @@ justify-content: center;
 .boton-descarga{
     padding: 0.7rem;
     margin-top: 20px;
-    color: #fafafa;
+    color: var(--ColorFuente);
     background-color: rgb(0, 84, 95);
     outline: none;
     border: none;
@@ -111,11 +154,11 @@ justify-content: center;
 
 
 .aside{
-    width: 20%;
+    width: 300px;
     position: absolute;
     height: 100vh;
     background-color: #202020;
-    color: #fafafa;
+    color: var(--ColorFuente);
     font-family: 'Carme', sans-serif;
     align-self: flex-end;
     justify-self: flex-end;
@@ -126,14 +169,21 @@ justify-content: center;
     text-align: right;
     padding: 1rem;
     font-size: 20px;
+    cursor: pointer;
 }
+
+.aside-oculto{
+    display: none;
+}
+
+/* FIN ESTILOS ASIDE */
 
 /* INICIO ESTILOS FORMULARIOS*/
 
 /* inicio estilos comunes */
 
 .formulario{
-    margin: 1rem;
+    margin: 0rem 1rem;
 }
 
 .formulario h2{
@@ -148,7 +198,7 @@ justify-content: center;
 }
 
 .input-texto, input[type=number]{
-    background-color: rgb(70, 70, 70);
+    background-color: var(--ColorFormulario);
     color: #fafafa;
     width: 100%;
     height: 8px;
@@ -182,17 +232,13 @@ justify-content: center;
 
 .color input{
     width: 40px;
-    /* border-radius: 50px; */
-    /* height: 30px; */
     background-color: transparent;
     border: none;
-    /* color: #FFFFFF; */
     outline-style: none;
-
 }
 
 .selector{
-    background-color: rgb(70, 70, 70);
+    background-color: var(--ColorFormulario);
     outline-style: none;
     border: none;
     width: 100%;
@@ -209,7 +255,7 @@ justify-content: center;
     height: 8px;
     width: 100%;
     margin: 4px 0;
-    background-color: rgb(70, 70, 70);
+    background-color: var(--ColorFormulario);
     border-radius: 50px;
     -webkit-appearance: none;
 }
@@ -217,8 +263,8 @@ justify-content: center;
 .boton-reestablecer{
     padding: 0.7rem;
     margin-top: 15px;
-    color: #fafafa;
-    background-color: rgb(70, 70, 70);
+    color: var(--ColorFuente); 
+    background-color: var(--ColorFormulario);
     outline: none;
     border: none;
 }
@@ -228,20 +274,24 @@ justify-content: center;
 }
 
 
-/* inicio estilos formulario imagen */
+/* fin estilos formulario imagen */
 
 
 /* inicio estilos formulario texto */
 
-.sin-texto-check, .sin-fondo-check, .fuente{
+.formulario-texto-oculto{
+    display: none;
+}
+
+.sin-texto-check, .sin-fondo-check, .selector-fuente{
     margin-bottom: 1rem;
 }
 .sin-texto-check label{
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .tamano-letra{
-    width: 20px;
+    width: 15px;
 }
 
 .propiedades-letra{
@@ -254,8 +304,8 @@ justify-content: center;
 }
 
 .boton-alineacion{
-    padding: 6px;
-    background-color: #FAFAFA;
+    padding: 7px;
+    background-color: var(--ColorFuente);
     outline-style: none;
     border: none;
     border-radius: 5px;
@@ -272,7 +322,7 @@ margin-bottom: 1rem;
 
 .boton-contorno{
    padding: 3px;
-   background-color: #FAFAFA;
+   background-color: var(--ColorFuente);
    outline-style: none;
    border: none;
    border-radius: 5px;

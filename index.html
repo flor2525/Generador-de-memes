@@ -46,23 +46,25 @@
                         <i class="fas fa-font"></i>
                         Texto
                     </button>
-                    <!-- <button id="boton-modo-claro">
+                    <button id="boton-modo-claro" class="boton-modo-claro">
                         <i class="far fa-lightbulb"></i>
                         Modo claro
-                    </button> -->
-                    <button id= "boton-modo-oscuro">
+                    </button>
+                    <button id= "boton-modo-oscuro" class="boton-modo-oscuro">
                         <i class="fas fa-lightbulb"></i>
                         Modo oscuro
                     </button>
                 </div>
             </header>
             <section class="meme-canvas">
-                <article class="texto-superior">
-                    <p>Texto superior</p>
+                <article class="texto-superior" id="espacio-superior">
+                    <p id="texto-superior">Texto superior</p>
                 </article>
-                <article class="meme-imagen"></article>
-                <article class="texto-inferior">
-                    <p>Texto inferior</p>
+                <article class="meme-imagen" id="imagen-meme">
+                    <!-- <img src="" alt="imagen meme" id="imagen-meme"> -->
+                </article>
+                <article class="texto-inferior" id="espacio-inferior">
+                    <p id="texto-inferior">Texto inferior</p>
                 </article>
                
             </section>
@@ -72,31 +74,31 @@
             </button>
         </main>
 
-        <aside class="aside">
-                <h3 class="cierre-aside" id="cierra-aside">X</h3>
+        <aside class="aside aside-oculto" id="aside">
+                <h3 class="cierre-aside" id="cierre-aside">X</h3>
 
             <!-- PROPIEDADES DE TEXTO -->
 
-            <!-- <form class="formulario texto">
+            <form class="formulario formulario-texto-oculto" id="formulario-texto">
                 <h2>TEXTO</h2>
                 <div>
-                    <label for="top-input">Superior</label>
-                    <input type="text" id="top-input" value="TOP TEXT" class="input-texto">
+                    <label for="texto-superior-input">Superior</label>
+                    <input type="text" id="texto-superior-input" value="TEXTO SUPERIOR" class="input-texto">
                 </div>
                 <div class="sin-texto-check">
-                    <input type="checkbox" id="top-check">
-                    <label for="top-check">Sin texto superior</label>
+                    <input type="checkbox" id="check-superior">
+                    <label for="check-superior">Sin texto superior</label>
                 </div>
     
-                <div >
-                    <label for="bottom">inferior</label>
-                    <input type="text" id="bottom" value="TOP TEXT" class="input-texto">
+                <div>
+                    <label for="texto-inferior-input">Inferior</label>
+                    <input type="text" id="texto-inferior-input" value="TEXTO INFERIOR" class="input-texto">
                 </div>
                 <div class="sin-texto-check">
-                    <input type="checkbox" id="bottom-check">
-                    <label for="bottom-check">Sin texto inferior</label>
+                    <input type="checkbox" id="check-inferior">
+                    <label for="check-inferior">Sin texto inferior</label>
                 </div>
-                <div class="fuente">
+                <div class="selector-fuente">
                     <label for="option">Fuente</label>
                     <select name="option" id="option" class="selector">
                         <option value="arial">Arial</option>
@@ -111,16 +113,22 @@
                 <div class= "propiedades-letra">
                     <input id="input-size" type="number" value="40">
                     <div class="botones-alineacion">
-                        <button id="izquierda" class="boton-alineacion">I</button>
-                        <button id="centro" class="boton-alineacion">C</button>
-                        <button id="derecha" class="boton-alineacion">D</button>
+                        <button id="izquierda" class="boton-alineacion">
+                            <i class="fas fa-align-left"></i>
+                        </button>
+                        <button id="centro" class="boton-alineacion">
+                            <i class="fas fa-align-center"></i>
+                        </button>
+                        <button id="derecha" class="boton-alineacion">
+                            <i class="fas fa-align-right"></i>
+                        </button>
                     </div>
                 </div>
                 <div class="fila color-fondo"> 
                     <div class="columna">
                         <label for="color">COLOR</label>
                         <div class="fila color">
-                            <input type="color" id="color" value="#FFFFF">
+                            <input type="color" id="color" value=#102034>
                             <span>#00000</span>
                         </div>
                     </div>
@@ -163,10 +171,10 @@
                         <option value="2.5">2.5</option>
                     </select>
                 </div>
-            </form> -->
+            </form>
 
             <!-- PROPIEDADES DE IMAGEN -->
-            <form class="formulario imagen">
+            <form class="formulario imagen" id="formulario-imagen">
                 <h2>IMAGEN</h2>
                 <div>
                     <label for="url">URL</label>
@@ -176,18 +184,18 @@
                 <div class="fila">
                     <div class="fila color">
                         <label for="fondo"></label>
-                        <input type="color" id="fondo" value="#00000">
+                        <input type="color" id="fondo-color" value="#102034">
                         <span>#FFFFFF</span>
                     </div>
                     <div>
                         <label for="propiedad-fondo"></label>
                         <select name="propiedad-fondo" id="propiedad-fondo" class="selector">
-                            <option>Ninguno</option>
-                            <option>Aclarar</option>
-                            <option>Oscurecer</option>
-                            <option>Diferencia</option>
-                            <option>Luminosidad</option>
-                            <option>Multiplicar</option>
+                            <option value="unset">Ninguno</option>
+                            <option value="lighten">Aclarar</option>
+                            <option value="darken">Oscurecer</option>
+                            <option value="difference">Diferencia</option>
+                            <option value="luminosity">Luminosidad</option>
+                            <option value="multiply">Multiplicar</option>
                         </select>
                     </div>
                 </div>
@@ -203,7 +211,7 @@
                     </div>
                     <div class="columna">
                         <label for="contraste">CONTRASTE</label>
-                        <input type="range" id="contraste" class="input-rango" min="100" max="1000" value="100" step="0.1">
+                        <input type="range" id="contraste" class="input-rango" min="100" max="1000" value="100" step="1">
                     </div>
                      <div class="columna">
                         <label for="desenfoque">DESENFOQUE</label>
@@ -211,19 +219,19 @@
                     </div>
                     <div class="columna">
                         <label for="grises">ESCALA DE GRISES</label>
-                        <input type="range" id="grises" class="input-rango" min="0" max="100" value="0" step="0.1">
+                        <input type="range" id="grises" class="input-rango" min="0" max="100" value="0" step="1">
                     </div>
                     <div class="columna">
                         <label for="sepia">SEPIA</label>
-                        <input type="range" id="sepia" class="input-rango" min="0" max="100" value="0" step="0.1">
+                        <input type="range" id="sepia" class="input-rango" min="0" max="100" value="0" step="1">
                     </div>
                     <div class="columna">
                          <label for="hue">HUE</label>
-                         <input type="range" id="hue" class="input-rango" min="0" max="360" value="0" step="0.1">
+                         <input type="range" id="hue" class="input-rango" min="0" max="359" value="0" step="1">
                     </div>
                     <div class="columna">
                         <label for="saturado">SATURADO</label>
-                        <input type="range" id="saturado" class="input-rango" min="100" max="1000" value="100" step="0.1">
+                        <input type="range" id="saturado" class="input-rango" min="100" max="1000" value="100" step="10">
                     </div>
                     <div class="columna">
                         <label for="negativo">NEGATIVO</label>
@@ -235,5 +243,8 @@
             
         </aside>
     </div>
+    <script src="./js/main.js"></script>
 </body>
 </html>
+
+

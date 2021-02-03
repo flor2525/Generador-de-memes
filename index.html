@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Alatsi&family=Carme&family=Pompiere&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Generador de Memes</title>
+    <title>Fábrica de Memes</title>
 </head>
 <body>
         <!-- <header class="header">
@@ -56,6 +56,10 @@
                     </button>
                 </div>
             </header>
+
+            <!-- SECCION MEME -->
+
+
             <section class="meme-canvas">
                 <article class="texto-superior" id="espacio-superior">
                     <p id="texto-superior">Texto superior</p>
@@ -84,6 +88,7 @@
                 <div>
                     <label for="texto-superior-input">Superior</label>
                     <input type="text" id="texto-superior-input" value="TEXTO SUPERIOR" class="input-texto">
+                    <!-- <textarea name="TEXTO SUPERIOR" id="texto-superior-input" cols="30" rows="1"></textarea> -->
                 </div>
                 <div class="sin-texto-check">
                     <input type="checkbox" id="check-superior">
@@ -99,19 +104,19 @@
                     <label for="check-inferior">Sin texto inferior</label>
                 </div>
                 <div class="selector-fuente">
-                    <label for="option">Fuente</label>
-                    <select name="option" id="option" class="selector">
+                    <label for="opcion-fuente">Fuente</label>
+                    <select name="option" id="opcion-fuente" class="selector">
                         <option value="arial">Arial</option>
                         <option value="arial black">Arial Black</option>
                         <option value="american type writer">American Type Writer</option>
                         <option value="andale mono">Andale Mono</option>
-                        <option value="comics sans ms">Comics Sans MS</option>
+                        <option value="verdana">Verdana</option>
                         <option value="helvetica">Helvética</option>
                         <option value="impact">Impact</option>
                     </select>
                 </div>
                 <div class= "propiedades-letra">
-                    <input id="input-size" type="number" value="40">
+                    <input id="input-tamano" type="number" value="40">
                     <div class="botones-alineacion">
                         <button id="izquierda" class="boton-alineacion">
                             <i class="fas fa-align-left"></i>
@@ -126,24 +131,24 @@
                 </div>
                 <div class="fila color-fondo"> 
                     <div class="columna">
-                        <label for="color">COLOR</label>
+                        <label for="color-letra">COLOR</label>
                         <div class="fila color">
-                            <input type="color" id="color" value=#102034>
+                            <input type="color" id="color-letra" value=#102034>
                             <span>#00000</span>
                         </div>
                     </div>
                     <div class="columna">
-                        <label for="fondo">FONDO</label>
+                        <label for="color-fondo">FONDO</label>
                         <div class="fila color">
-                            <input type="color" id="fondo" value="#FFFFFF">
+                            <input type="color" id="color-fondo" value="#FFFFFF">
                             <span>#fffff</span>
                         </div>
                     </div>
                 </div>
     
                 <div class="sin-fondo-check">
-                    <input type="checkbox" id="checkbox">
-                    <label for="chechbox">Fondo transparente</label>
+                    <input type="checkbox" id="check-sin-fondo">
+                    <label for="check-sin-fondo">Fondo transparente</label>
                 </div>
     
                 <div class="columna">

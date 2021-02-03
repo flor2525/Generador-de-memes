@@ -58,7 +58,7 @@ url.addEventListener('keyup', () => {
     imagenMeme.innerHTML = `<img src="${urlImg}" alt="imagen meme" class='imagen-adaptada'>`
 })
 
-// Fondo
+// Fondo - modificar bb
 
 fondoColor.addEventListener('input', () => {
     // console.log(fondoColor.value);
@@ -107,6 +107,88 @@ checkInferior.addEventListener('click', () => {
 })
 
 
+// Tipo de fuente
+
+const opcionFuente = document.getElementById('opcion-fuente');
+
+opcionFuente.addEventListener('change', () => {
+    textoSuperior.style.fontFamily = `${opcionFuente.value}`;
+    textoInferior.style.fontFamily = `${opcionFuente.value}`;
+})
+
+
+// Tamaño de la fuente - REVISARRRRR
+
+const inputTamano = document.getElementById('input-tamano');
+
+inputTamano.addEventListener('keyup', () => {
+    // console.log(inputTamano.value);
+    // textoSuperior.style.fontSize = inputTamano.value;
+
+    textoSuperior.style.fontSize = `${inputTamano.value}`;
+    // textoInferior.style.fontSize = `${inputTamano.value}`;
+})
+
+
+// Alineación de la letra
+
+const izquierda = document.getElementById('izquierda');
+const centro = document.getElementById('centro');
+const derecha = document.getElementById('derecha');
+
+izquierda.addEventListener('click', (e) => {
+    e.preventDefault();
+    textoSuperior.style.textAlign = 'left';
+    textoInferior.style.textAlign = 'left';
+})
+
+centro.addEventListener('click', (e) => {
+    e.preventDefault();
+    textoSuperior.style.textAlign = 'center';
+    textoInferior.style.textAlign = 'center';
+})
+
+derecha.addEventListener('click', (e) => {
+    e.preventDefault();
+    textoSuperior.style.textAlign = 'right';
+    textoInferior.style.textAlign = 'right';
+})
+
+// Color de la letra
+
+const colorLetra = document.getElementById('color-letra');
+
+ colorLetra.addEventListener('input', () => {
+    textoSuperior.style.color = colorLetra.value;
+    textoInferior.style.color = colorLetra.value;
+ })
+
+
+//  Color de fondo de la letra
+
+const colorFondo = document.getElementById('color-fondo');
+
+colorFondo.addEventListener('input', () => {
+    espacioSuperior.style.backgroundColor = colorFondo.value;
+    espacioInferior.style.backgroundColor = colorFondo.value;
+})
+
+// Fondo transparente . revisar, no es la función
+
+const checkSinFondo = document.getElementById('check-sin-fondo');
+
+checkSinFondo.addEventListener('click', () => {
+    if (checkSinFondo.checked){
+    espacioSuperior.style.backgroundColor = 'transparent'
+    espacioInferior.style.backgroundColor = 'transparent'
+    } else {
+        espacioSuperior.style.backgroundColor = colorFondo.value;
+        espacioInferior.style.backgroundColor = colorFondo.value;
+    }
+       
+})
+
+// Contorno
 
 
 

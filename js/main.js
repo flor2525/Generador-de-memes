@@ -6,11 +6,6 @@ const aside = document.getElementById('aside');
 const formularioTexto = document.getElementById('formulario-texto');
 const formularioImagen = document.getElementById('formulario-imagen');
 
-// console.log(botonImg)
-// console.log(botonTexto)
-// console.log(aside)
-// console.log(formularioTexto)
-// console.log(formularioImagen)
 
 botonImg.addEventListener('click', () => {
     aside.classList.remove('aside-oculto');
@@ -58,19 +53,95 @@ url.addEventListener('keyup', () => {
     imagenMeme.innerHTML = `<img src="${urlImg}" alt="imagen meme" class='imagen-adaptada'>`
 })
 
-// Fondo - modificar bb
+// Fondo
 
 fondoColor.addEventListener('input', () => {
-    // console.log(fondoColor.value);
-    espacioInferior.style.backgroundColor = fondoColor.value
-    espacioSuperior.style.backgroundColor = fondoColor.value
+    imagenMeme.style.backgroundColor = fondoColor.value
+    imagenMeme.style.backgroundColor = fondoColor.value
+})
+
+// Mix blend de fondo
+
+const propiedadFondo = document.getElementById('propiedad-fondo');
+
+propiedadFondo.addEventListener('change', () => {
+    imagenMeme.style.mixBlendMode = propiedadFondo.value;
+})
+
+// Filtros rangos
+
+const filtrosRangos = document.getElementsByClassName('input-rango');
+
+
+// ** Brillo
+
+filtrosRangos[0].addEventListener('change', () => {
+    imagenMeme.style.filter = `brightness(${filtrosRangos[0].value})`;
+})
+
+// ** Opacidad
+
+filtrosRangos[1].addEventListener('change', () => imagenMeme.style.opacity = filtrosRangos[1].value)
+
+// ** Contraste - ver
+
+filtrosRangos[2].addEventListener('change', () => imagenMeme.style.filter = `contrast(${filtrosRangos[2].value}%)`
+)
+
+// ** Desenfoque
+
+filtrosRangos[3].addEventListener('change', () => imagenMeme.style.filter = `blur(${filtrosRangos[3].value}px)`)
+
+// ** Escala de grises
+
+filtrosRangos[4].addEventListener('change', () => imagenMeme.style.filter = `grayscale(${filtrosRangos[4].value}%)`
+)
+
+// ** Sepia
+
+filtrosRangos[5].addEventListener('change', () => imagenMeme.style.filter = `sepia(${filtrosRangos[5].value}%)`
+)
+
+// ** Hue
+
+filtrosRangos[6].addEventListener('change', () => imagenMeme.style.filter = `hue-rotate(${filtrosRangos[6].value}deg)`
+)
+
+// ** Saturado
+
+filtrosRangos[7].addEventListener('change', () => imagenMeme.style.filter = `saturate(${filtrosRangos[7].value}%)`
+)
+
+// ** Negativo
+
+filtrosRangos[8].addEventListener('change', () => imagenMeme.style.filter = `invert(${filtrosRangos[8].value})`
+)
+
+// ** Restablecer filtros - revisar
+
+const restrablecerFiltros = document.getElementById('restablecer-filtros');
+
+const filtrosMeme = () => {
+    imagenMeme.style.filter = `brightness(${filtrosRangos[0].value}) opacity(${filtrosRangos[1].value}%) contrast(${filtrosRangos[2].value}%) blur(${filtrosRangos[3].value}px) grayscale(${filtrosRangos[4].value}%) sepia(${filtrosRangos[5].value}%) hue-rotate(${filtrosRangos[6].value}deg) saturate(${filtrosRangos[7].value}%) invert(${filtrosRangos[8].value})`
+}
+
+restrablecerFiltros.addEventListener('click', (e) => {
+    e.preventDefault();
+    filtrosRangos[0].value = '1';
+    filtrosRangos[1].value = '1';
+    filtrosRangos[2].value = '100';
+    filtrosRangos[3].value = '0';
+    filtrosRangos[4].value = '0';
+    filtrosRangos[5].value = '0';
+    filtrosRangos[6].value = '0';
+    filtrosRangos[7].value = '100';
+    filtrosRangos[8].value = '0';
+    filtrosMeme();
+    
 })
 
 
-
-
-
-
+// ************** Fin de funcionalidades de imagen **********************
 
 // ************** Funcionalidades de texto **********************
 
@@ -117,16 +188,13 @@ opcionFuente.addEventListener('change', () => {
 })
 
 
-// Tamaño de la fuente - REVISARRRRR
+// Tamaño de la fuente 
 
 const inputTamano = document.getElementById('input-tamano');
 
 inputTamano.addEventListener('keyup', () => {
-    // console.log(inputTamano.value);
-    // textoSuperior.style.fontSize = inputTamano.value;
-
-    textoSuperior.style.fontSize = `${inputTamano.value}`;
-    // textoInferior.style.fontSize = `${inputTamano.value}`;
+    textoSuperior.style.fontSize = `${inputTamano.value}px`;
+    textoInferior.style.fontSize = `${inputTamano.value}px`;
 })
 
 
@@ -190,5 +258,52 @@ checkSinFondo.addEventListener('click', () => {
 
 // Contorno
 
+const sinContorno = document.getElementById('sin-contorno');
+const contornoClaro = document.getElementById('contorno-claro');
+const contornoOscuro = document.getElementById('contorno-oscuro');
+
+contornoOscuro.addEventListener('click', (e) => {
+    e.preventDefault();
+    textoSuperior.classList.add('contorno-negro'); 
+    textoInferior.classList.add('contorno-negro'); 
+})
+
+contornoClaro.addEventListener('click', (e) => {
+    e.preventDefault();
+    textoSuperior.classList.remove('contorno-negro');
+    textoSuperior.classList.add('contorno-blanco'); 
+    textoInferior.classList.remove('contorno-negro');
+    textoInferior.classList.add('contorno-blanco'); 
+})
+
+sinContorno.addEventListener('click', (e) => {
+    e.preventDefault();
+    textoSuperior.classList.remove('contorno-negro'); 
+    textoSuperior.classList.remove('contorno-blanco'); 
+    textoInferior.classList.remove('contorno-negro'); 
+    textoInferior.classList.remove('contorno-blanco'); 
+})
+
+// Espaciado
+
+const espaciado = document.getElementById('espaciado');
+
+espaciado.addEventListener('keyup', () => {
+    textoSuperior.style.paddingTop = `${espaciado.value}px`;
+    textoSuperior.style.paddingBottom = `${espaciado.value}px`;
+    textoInferior.style.paddingTop = `${espaciado.value}px`;
+    textoInferior.style.paddingBottom = `${espaciado.value}px`;
+}
+)
+
+// Interlineado
+
+const interlineado = document.getElementById('interlineado');
+
+interlineado.addEventListener('change', () => {
+    textoSuperior.style.lineHeight = interlineado.value;
+    textoInferior.style.lineHeight = interlineado.value;
+})
 
 
+// ************** Fin de funcionalidades de texto **********************

@@ -21,11 +21,10 @@ botonTexto.addEventListener('click', () => {
     formularioTexto.style.display = 'block';
 })
 
+
 // ************** Cierre de panel lateral **********************
 
 const cierreAside = document.getElementById('cierre-aside');
-
-// console.log(cierreAside)
 
 cierreAside.addEventListener('click',() => {
     aside.style.display = 'none';
@@ -34,23 +33,43 @@ cierreAside.addEventListener('click',() => {
 })
 
 
+// ************** Botón modo claro/modo oscuro **********************
+
+const botonModoClaro = document.getElementById('boton-modo-claro');
+const botonModoOscuro = document.getElementById('boton-modo-oscuro');
+
+botonModoClaro.addEventListener('click', () => {
+    botonModoClaro.classList.add('ocultar');
+    botonModoOscuro.classList.remove('ocultar');
+    document.body.classList.add('modo-oscuro');
+})
+
+botonModoOscuro.addEventListener('click', () => {
+    botonModoOscuro.classList.add('ocultar');
+    botonModoClaro.classList.remove('ocultar');
+    document.body.classList.remove('modo-oscuro');
+})
+
+
 // ************** Funcionalidades de imagen **********************
-
-
 
 const espacioSuperior = document.getElementById('espacio-superior');
 const imagenMeme = document.getElementById('imagen-meme');
 const espacioInferior = document.getElementById('espacio-inferior');
-
+const propiedadFondo = document.getElementById('propiedad-fondo');
+const filtrosRangos = document.getElementsByClassName('input-rango');
 const url = document.getElementById('url');
 const fondoColor = document.getElementById('fondo-color');
+const restrablecerFiltros = document.getElementById('restablecer-filtros');
 
 
 // URL
 
 url.addEventListener('keyup', () => {
     const urlImg = url.value;
-    imagenMeme.innerHTML = `<img src="${urlImg}" alt="imagen meme" class='imagen-adaptada'>`
+    imagenMeme.style.backgroundImage = `url("${urlImg}")`;
+    imagenMeme.classList.add('imagen-fondo');
+
 })
 
 // Fondo
@@ -62,68 +81,28 @@ fondoColor.addEventListener('input', () => {
 
 // Mix blend de fondo
 
-const propiedadFondo = document.getElementById('propiedad-fondo');
-
 propiedadFondo.addEventListener('change', () => {
     imagenMeme.style.mixBlendMode = propiedadFondo.value;
 })
 
 // Filtros rangos
 
-const filtrosRangos = document.getElementsByClassName('input-rango');
-
-
-// ** Brillo
-
-filtrosRangos[0].addEventListener('change', () => {
-    imagenMeme.style.filter = `brightness(${filtrosRangos[0].value})`;
-})
-
-// ** Opacidad
-
-filtrosRangos[1].addEventListener('change', () => imagenMeme.style.opacity = filtrosRangos[1].value)
-
-// ** Contraste - ver
-
-filtrosRangos[2].addEventListener('change', () => imagenMeme.style.filter = `contrast(${filtrosRangos[2].value}%)`
-)
-
-// ** Desenfoque
-
-filtrosRangos[3].addEventListener('change', () => imagenMeme.style.filter = `blur(${filtrosRangos[3].value}px)`)
-
-// ** Escala de grises
-
-filtrosRangos[4].addEventListener('change', () => imagenMeme.style.filter = `grayscale(${filtrosRangos[4].value}%)`
-)
-
-// ** Sepia
-
-filtrosRangos[5].addEventListener('change', () => imagenMeme.style.filter = `sepia(${filtrosRangos[5].value}%)`
-)
-
-// ** Hue
-
-filtrosRangos[6].addEventListener('change', () => imagenMeme.style.filter = `hue-rotate(${filtrosRangos[6].value}deg)`
-)
-
-// ** Saturado
-
-filtrosRangos[7].addEventListener('change', () => imagenMeme.style.filter = `saturate(${filtrosRangos[7].value}%)`
-)
-
-// ** Negativo
-
-filtrosRangos[8].addEventListener('change', () => imagenMeme.style.filter = `invert(${filtrosRangos[8].value})`
-)
-
-// ** Restablecer filtros - revisar
-
-const restrablecerFiltros = document.getElementById('restablecer-filtros');
-
 const filtrosMeme = () => {
-    imagenMeme.style.filter = `brightness(${filtrosRangos[0].value}) opacity(${filtrosRangos[1].value}%) contrast(${filtrosRangos[2].value}%) blur(${filtrosRangos[3].value}px) grayscale(${filtrosRangos[4].value}%) sepia(${filtrosRangos[5].value}%) hue-rotate(${filtrosRangos[6].value}deg) saturate(${filtrosRangos[7].value}%) invert(${filtrosRangos[8].value})`
+    imagenMeme.style.filter = `brightness(${filtrosRangos[0].value}) opacity(${filtrosRangos[1].value}) contrast(${filtrosRangos[2].value}%) blur(${filtrosRangos[3].value}px) grayscale(${filtrosRangos[4].value}%) sepia(${filtrosRangos[5].value}%) hue-rotate(${filtrosRangos[6].value}deg) saturate(${filtrosRangos[7].value}%) invert(${filtrosRangos[8].value})`
 }
+
+filtrosRangos[0].addEventListener('change', filtrosMeme);
+filtrosRangos[1].addEventListener('change', filtrosMeme);
+filtrosRangos[2].addEventListener('change', filtrosMeme);
+filtrosRangos[3].addEventListener('change', filtrosMeme);
+filtrosRangos[4].addEventListener('change', filtrosMeme);
+filtrosRangos[5].addEventListener('change', filtrosMeme);
+filtrosRangos[6].addEventListener('change', filtrosMeme);
+filtrosRangos[7].addEventListener('change', filtrosMeme);
+filtrosRangos[8].addEventListener('change', filtrosMeme);
+
+
+// Reestablecer filtros 
 
 restrablecerFiltros.addEventListener('click', (e) => {
     e.preventDefault();
@@ -151,6 +130,20 @@ const textoSuperior = document.getElementById('texto-superior');
 const checkSuperior = document.getElementById('check-superior');
 const textoInferior = document.getElementById('texto-inferior');
 const checkInferior = document.getElementById('check-inferior');
+const opcionFuente = document.getElementById('opcion-fuente');
+const inputTamano = document.getElementById('input-tamano');
+const izquierda = document.getElementById('izquierda');
+const centro = document.getElementById('centro');
+const derecha = document.getElementById('derecha');
+const colorLetra = document.getElementById('color-letra');
+const colorFondo = document.getElementById('color-fondo');
+const checkSinFondo = document.getElementById('check-sin-fondo');
+const sinContorno = document.getElementById('sin-contorno');
+const contornoClaro = document.getElementById('contorno-claro');
+const contornoOscuro = document.getElementById('contorno-oscuro');
+const espaciado = document.getElementById('espaciado');
+const interlineado = document.getElementById('interlineado');
+
 
 
 // Pintar texto en meme
@@ -180,8 +173,6 @@ checkInferior.addEventListener('click', () => {
 
 // Tipo de fuente
 
-const opcionFuente = document.getElementById('opcion-fuente');
-
 opcionFuente.addEventListener('change', () => {
     textoSuperior.style.fontFamily = `${opcionFuente.value}`;
     textoInferior.style.fontFamily = `${opcionFuente.value}`;
@@ -190,8 +181,6 @@ opcionFuente.addEventListener('change', () => {
 
 // Tamaño de la fuente 
 
-const inputTamano = document.getElementById('input-tamano');
-
 inputTamano.addEventListener('keyup', () => {
     textoSuperior.style.fontSize = `${inputTamano.value}px`;
     textoInferior.style.fontSize = `${inputTamano.value}px`;
@@ -199,10 +188,6 @@ inputTamano.addEventListener('keyup', () => {
 
 
 // Alineación de la letra
-
-const izquierda = document.getElementById('izquierda');
-const centro = document.getElementById('centro');
-const derecha = document.getElementById('derecha');
 
 izquierda.addEventListener('click', (e) => {
     e.preventDefault();
@@ -224,8 +209,6 @@ derecha.addEventListener('click', (e) => {
 
 // Color de la letra
 
-const colorLetra = document.getElementById('color-letra');
-
  colorLetra.addEventListener('input', () => {
     textoSuperior.style.color = colorLetra.value;
     textoInferior.style.color = colorLetra.value;
@@ -234,16 +217,12 @@ const colorLetra = document.getElementById('color-letra');
 
 //  Color de fondo de la letra
 
-const colorFondo = document.getElementById('color-fondo');
-
 colorFondo.addEventListener('input', () => {
     espacioSuperior.style.backgroundColor = colorFondo.value;
     espacioInferior.style.backgroundColor = colorFondo.value;
 })
 
 // Fondo transparente . revisar, no es la función
-
-const checkSinFondo = document.getElementById('check-sin-fondo');
 
 checkSinFondo.addEventListener('click', () => {
     if (checkSinFondo.checked){
@@ -257,10 +236,6 @@ checkSinFondo.addEventListener('click', () => {
 })
 
 // Contorno
-
-const sinContorno = document.getElementById('sin-contorno');
-const contornoClaro = document.getElementById('contorno-claro');
-const contornoOscuro = document.getElementById('contorno-oscuro');
 
 contornoOscuro.addEventListener('click', (e) => {
     e.preventDefault();
@@ -286,8 +261,6 @@ sinContorno.addEventListener('click', (e) => {
 
 // Espaciado
 
-const espaciado = document.getElementById('espaciado');
-
 espaciado.addEventListener('keyup', () => {
     textoSuperior.style.paddingTop = `${espaciado.value}px`;
     textoSuperior.style.paddingBottom = `${espaciado.value}px`;
@@ -297,8 +270,6 @@ espaciado.addEventListener('keyup', () => {
 )
 
 // Interlineado
-
-const interlineado = document.getElementById('interlineado');
 
 interlineado.addEventListener('change', () => {
     textoSuperior.style.lineHeight = interlineado.value;

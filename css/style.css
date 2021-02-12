@@ -2,8 +2,6 @@
 
 /* VARIABLES DE COLORES */
 
-
-
 /* Modo claro */
 
 :root{
@@ -32,7 +30,6 @@ body.modo-oscuro{
 /* FIN DE VARIABLES DE COLORES */
 
 
-
 /* INICIO ESTILOS GENERALES */
 
 *{
@@ -49,12 +46,14 @@ body{
 
 /* FIN ESTILOS GENERALES */
 
-/* INICIO ESTILOS HEADER */
+/* INICIO ESTILOS ENCABEZADO */
 
 .header{
     width: 100%;
-    height: 15vh;
+    height: 16vh;
     background-color: var(--ColorEncabezado);
+    box-shadow: 0 0 20px 0 rgba(46, 46, 46, 0.384);
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,8 +64,11 @@ body{
 .titular{
     color: var(--ColorFuente);
     font-size: 2.5rem;
-    padding-bottom: 15px;
-    margin-top: 20px;
+    padding-bottom: 7px;
+    margin-top: 30px;
+    letter-spacing: 3px; 
+    text-shadow: 1px 1px #666, 2px 2px #86D6D3, 3px 3px #666, 4px 4px #055770;
+    
 }
 
 .boton-container{
@@ -82,25 +84,27 @@ body{
     outline: none;
     border: none;
     background-color: var(--ColorEncabezado);
-    margin: 10px;
+    margin: 7px 10px;
     cursor: pointer;
     padding: 0.5rem;
 }
 
 .boton-container button:hover{
-    background-color: #8b8686;
+    /* background-color: #8b8686; */
+    background-color: rgb(0, 84, 95);
+    color: var(--BotonDescarga);
+    border-radius: 10px;
 
 }
 
 .ocultar{
     display: none;
 }
-/* FIN ESTILOS HEADER */
+/* FIN ESTILOS ENCABEZADO */
 
 /* INICIO ESTILOS SECCIÓN MEME */
 
 .meme-container{
-    /* float: left; */
     width: 100%;
     height: 100vh;
     background-color: var(--ColorSeccionMeme);
@@ -118,9 +122,8 @@ body{
     
 }
 
-.texto-superior, .texto-inferior{
+.espacio-superior, .espacio-inferior{
 flex: 1 1 15%;
-font-family: 'Alatsi', sans-serif;
 background-color: #FAFAFA;
 padding-top: 15px;
 }
@@ -139,19 +142,20 @@ padding-top: 15px;
     background-size: cover;    
 }
 
-.texto-superior p, .texto-inferior p{
+.espacio-superior p, .espacio-inferior p{
     color: black;
     font-size: 40px;
+    font-family: 'Alatsi', sans-serif;
     text-transform: uppercase;
     text-align: center;
+    padding: 0 15px;
     /* -webkit-text-stroke: 1px red; */
   
 }
 
-
 .boton-descarga{
     padding: 0.7rem;
-    margin-top: 20px;
+    margin-top: 15px;
     color: var(--BotonDescarga);
     background-color: rgb(0, 84, 95);
     outline: none;
@@ -164,7 +168,7 @@ padding-top: 15px;
 
 /* FIN ESTILOS SECCIÓN MEME */
 
-/* INICIO ESTILOS ASIDE */
+/* INICIO ESTILOS PANEL LATERAL */
 
 
 .aside{
@@ -176,7 +180,6 @@ padding-top: 15px;
     font-family: 'Carme', sans-serif;
     align-self: flex-end;
     justify-self: flex-end;
-    /* display: none; */
 }
 
 .cierre-aside{
@@ -190,7 +193,7 @@ padding-top: 15px;
     display: none;
 }
 
-/* FIN ESTILOS ASIDE */
+/* FIN ESTILOS PANEL LATERAL */
 
 /* INICIO ESTILOS FORMULARIOS*/
 
@@ -211,7 +214,7 @@ padding-top: 15px;
     margin: 1rem 0;
 }
 
-.input-texto, input[type=number], textarea{
+.input-texto, input[type=number]{
     background-color: var(--ColorFormulario);
     color: #fafafa;
     width: 100%;
@@ -224,14 +227,10 @@ padding-top: 15px;
     outline-style: none;
 }
 
-
-
 .columna{
     display: flex;
     flex-direction: column;
     margin-top: 0.9rem;
-    
-
 }
 
 .columna label{
@@ -256,13 +255,15 @@ padding-top: 15px;
 
 .selector{
     background-color: var(--ColorFormulario);
+    color: #fafafa;
     outline-style: none;
     border: none;
     width: 100%;
-    height: 8px;
-    padding: 10px;
-    margin-top: 10px;
+    height: 25px;
+    padding: 5px 10px;
+    
 }
+
 /* fin estilos comunes*/
 
 /* inicio estilos formulario imagen */
@@ -290,9 +291,7 @@ padding-top: 15px;
     background-color: rgb(104, 103, 103);
 }
 
-
 /* fin estilos formulario imagen */
-
 
 /* inicio estilos formulario texto */
 
@@ -303,6 +302,7 @@ padding-top: 15px;
 .sin-texto-check, .sin-fondo-check, .selector-fuente{
     margin-bottom: 1rem;
 }
+
 .sin-texto-check label{
     font-size: 12px;
 }
@@ -320,6 +320,9 @@ padding-top: 15px;
     width: 60%;
 }
 
+.botones-alineacion{
+    margin-top: 10px;
+}
 .boton-alineacion{
     padding: 7px;
     background-color: var(--ColorFormulario);
@@ -336,13 +339,16 @@ padding-top: 15px;
 margin-bottom: 1rem;
 }
 
-
 .boton-contorno{
    padding: 7px;
    background-color: var(--ColorFormulario);
    outline-style: none;
    border: none;
    border-radius: 5px;
+}
+
+.boton-contorno:hover , .boton-alineacion:hover{
+    background-color: rgb(179, 179, 179);
 }
 
 .contorno-blanco{
@@ -355,8 +361,7 @@ margin-bottom: 1rem;
 
 /* fin estilos formulario texto */
 
-/* 
-Ajustes responsive */
+/* Ajustes responsive */
 
 @media(max-width:650px){
     .aside{
@@ -377,7 +382,7 @@ Ajustes responsive */
     .meme-canvas{
         height: 250px;
         width: 250px;
-       }
+    }
     .texto-superior p, .texto-inferior p{
         font-size: 15px;
     }
@@ -398,6 +403,31 @@ Ajustes responsive */
         margin: 5px;
     }
 
+    .columna{
+        margin-top: 0.4rem;
+    }
+    .columna label{
+        font-size: 10px;
+    }
+ 
+    .input-rango{
+        height: 6px;
+        margin: 3px 0;
+       
+    }
+
+    .input-texto, input[type=number]{
+        height: 8px;
+        padding: 8px;
+        margin-bottom: 3%;
+        margin-top: 5px;
+        outline-style: none;
+    }
+
+    .sin-texto-check, .sin-fondo-check, .selector-fuente{
+        margin-bottom: 0.5rem;
+    }
+
 }
 
-
+/* Fin ajustes responsive */

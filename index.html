@@ -3,54 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Florencia Dell'Anno">
+    <meta name="description" content="Fábrica editora de memes">
+    <meta name="keywords" content="meme, imagen, editor">
+
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Alatsi&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Alatsi&family=Carme&family=Pompiere&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/favicon-oscuro-256x256.png">
     <link rel="stylesheet" href="./css/style.css">
+
     <title>Fábrica de Memes</title>
+    
 </head>
 <body>
-        <!-- <header class="header">
-            <h1 class="titular">Fabrica de memes</h1>
-            <div class="boton-container">
-                <button id="boton-img">
-                    <i class="fas fa-file-image"></i>
-                    Imagen
-                </button>
-                <button id="boton-texto">
-                    <i class="fas fa-font"></i>
-                    Texto
-                </button>
-                <button id="boton-modo-claro">
-                    <i class="far fa-lightbulb"></i>
-                    Modo claro
-                </button>
-                <button id= "boton-modo-oscuro">
-                    <i class="fas fa-lightbulb"></i>
-                    Modo oscuro
-                </button>
-            </div>
-        </header> -->
-
+        
         <main class="meme-container">
+
+            <!-- ENCABEZADO -->
+
             <header class="header">
-                <h1 class="titular">Fabrica de memes</h1>
+                <div class="contenedor-titular">
+                    <h1 class="titular">FÁBRICA DE MEMES</h1>
+                </div>
+
+                <!-- *** botonera *** -->
+
                 <div class="boton-container">
-                    <button id="boton-img">
+                    <button id="boton-img" aria-label="Edición de imagen">
                         <i class="fas fa-file-image"></i>
                         Imagen
                     </button>
-                    <button id="boton-texto">
+                    <button id="boton-texto" aria-label="Edición de texto">
                         <i class="fas fa-font"></i>
                         Texto
                     </button>
-                    <button id="boton-modo-claro" class="boton-modo-claro">
+                    <button id="boton-modo-claro" class="boton-modo-claro" aria-label="Cambiar a vista en modo oscuro">
                         <i class="far fa-lightbulb"></i>
                         Modo claro
                     </button>
-                    <button id= "boton-modo-oscuro" class="ocultar" class="boton-modo-oscuro">
+                    <button id= "boton-modo-oscuro" class="ocultar" class="boton-modo-oscuro" aria-label="Cambiar a vista en modo claro">
                         <i class="fas fa-lightbulb"></i>
                         Modo oscuro
                     </button>
@@ -59,142 +54,56 @@
 
             <!-- SECCION MEME -->
 
+            <!-- *** meme canvas *** -->
 
-            <section class="meme-canvas">
-                <article class="texto-superior" id="espacio-superior">
+            <section class="meme-canvas" id="meme-canvas">
+                <article class="espacio-superior" id="espacio-superior">
                     <p id="texto-superior">Texto superior</p>
                 </article>
-                <article class="meme-imagen" id="imagen-meme">
-                    <!-- <img src="" alt="imagen meme" id="imagen-meme"> -->
-                </article>
-                <article class="texto-inferior" id="espacio-inferior">
+                <article class="meme-imagen" id="imagen-meme"></article>
+                <article class="espacio-inferior" id="espacio-inferior">
                     <p id="texto-inferior">Texto inferior</p>
-                </article>
-               
+                </article>  
             </section>
-            <button class="boton-descarga">
-                <i class="fas fa-cloud-download-alt"></i>
+
+            <!-- *** botón de descarga de meme *** -->
+
+            <button class="boton-descarga" id="boton-descarga">
+                <i class="fas fa-cloud-download-alt" aria-hidden="true"></i>
                 Descargar meme
             </button>
         </main>
 
+        <!-- PANEL LATERAL CON EDITOR DE IMAGEN Y TEXTO -->
+
         <aside class="aside aside-oculto" id="aside">
-                <h3 class="cierre-aside" id="cierre-aside">X</h3>
+                <h3 class="cierre-aside" id="cierre-aside" aria-label="Cerrar panel">X</h3>
 
-            <!-- PROPIEDADES DE TEXTO -->
 
-            <form class="formulario formulario-texto-oculto" id="formulario-texto">
-                <h2>TEXTO</h2>
-                <div>
-                    <label for="texto-superior-input">Superior</label>
-                    <input type="text" id="texto-superior-input" value="TEXTO SUPERIOR" class="input-texto">
-                    <!-- <textarea name="TEXTO SUPERIOR" id="texto-superior-input" cols="30" rows="1"></textarea> -->
-                </div>
-                <div class="sin-texto-check">
-                    <input type="checkbox" id="check-superior">
-                    <label for="check-superior">Sin texto superior</label>
-                </div>
-    
-                <div>
-                    <label for="texto-inferior-input">Inferior</label>
-                    <input type="text" id="texto-inferior-input" value="TEXTO INFERIOR" class="input-texto">
-                </div>
-                <div class="sin-texto-check">
-                    <input type="checkbox" id="check-inferior">
-                    <label for="check-inferior">Sin texto inferior</label>
-                </div>
-                <div class="selector-fuente">
-                    <label for="opcion-fuente">Fuente</label>
-                    <select name="option" id="opcion-fuente" class="selector">
-                        <option value="arial">Arial</option>
-                        <option value="arial black">Arial Black</option>
-                        <option value="american type writer">American Type Writer</option>
-                        <option value="andale mono">Andale Mono</option>
-                        <option value="verdana">Verdana</option>
-                        <option value="helvetica">Helvética</option>
-                        <option value="impact">Impact</option>
-                    </select>
-                </div>
-                <div class= "propiedades-letra">
-                    <input id="input-tamano" type="number" value="40">
-                    <div class="botones-alineacion">
-                        <button id="izquierda" class="boton-alineacion">
-                            <i class="fas fa-align-left"></i>
-                        </button>
-                        <button id="centro" class="boton-alineacion">
-                            <i class="fas fa-align-center"></i>
-                        </button>
-                        <button id="derecha" class="boton-alineacion">
-                            <i class="fas fa-align-right"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="fila color-fondo"> 
-                    <div class="columna">
-                        <label for="color-letra">COLOR</label>
-                        <div class="fila color">
-                            <input type="color" id="color-letra" value=#102034>
-                            <span>#00000</span>
-                        </div>
-                    </div>
-                    <div class="columna">
-                        <label for="color-fondo">FONDO</label>
-                        <div class="fila color">
-                            <input type="color" id="color-fondo" value="#FFFFFF">
-                            <span>#fffff</span>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="sin-fondo-check">
-                    <input type="checkbox" id="check-sin-fondo">
-                    <label for="check-sin-fondo">Fondo transparente</label>
-                </div>
-    
-                <div class="columna">
-                    <h3>Contorno</h3>
-                    <div class="botones-contorno">
-                        <button id="sin-contorno" class="boton-contorno">Ninguno</button>
-                        <button id="contorno-claro" class="boton-contorno">Claro</button>
-                        <button id="contorno-oscuro" class="boton-contorno">Oscuro</button>
-                    </div>
-                </div>
-    
-                <div>
-                    <label>Espaciado</label>
-                    <input id="espaciado" type="number" value="35" min="10" max="50" >
-                </div>
-    
-                <div>
-                    <label for="interlineado">Interlineado</label>
-                    <select name="interlineado" id="interlineado" class="selector">
-                        <option value="0.8">0.8</option>
-                        <option value="1">1</option>
-                        <option value="1.2">1.2</option>
-                        <option value="1.5">1.5</option>
-                        <option value="2">2</option>
-                        <option value="2.5">2.5</option>
-                    </select>
-                </div>
-            </form>
+             <!-- EDITOR DE IMAGEN -->
 
-            <!-- PROPIEDADES DE IMAGEN -->
-            <form class="formulario imagen" id="formulario-imagen">
+             <form class="formulario imagen" id="formulario-imagen">
                 <h2>IMAGEN</h2>
+
+            <!-- *** Ingreso de URL *** -->
+
                 <div>
                     <label for="url">URL</label>
-                    <input type="url" id="url" class="input-texto">
+                    <input type="url" id="url" class="input-texto" aria-label="Direccion URL de la imagen">
                 </div>
+
+            <!-- *** Propiedades de fondo *** -->  
+
                 <h3>FONDO</h3>
                 <div class="fila">
                     <div class="fila color">
                         <label for="fondo"></label>
-                        <input type="color" id="fondo-color" value="#102034">
-                        <span>#FFFFFF</span>
+                        <input type="color" id="fondo-color" value="#102034" aria-label="Selección color de fondo de imagen">
+                        <span id="código-color-imagen">#FFFFFF</span>
                     </div>
                     <div>
                         <label for="propiedad-fondo"></label>
-                        <select name="propiedad-fondo" id="propiedad-fondo" class="selector">
+                        <select name="propiedad-fondo" id="propiedad-fondo" class="selector" aria-label="Selección de blend de fondo">
                             <option value="unset">Ninguno</option>
                             <option value="lighten">Aclarar</option>
                             <option value="darken">Oscurecer</option>
@@ -203,6 +112,9 @@
                             <option value="multiply">Multiplicar</option>
                         </select>
                     </div>
+
+            <!-- *** Filtros de imagen *** -->
+
                 </div>
                 <div class="contenedor-rangos">
                     <h3>FILTROS</h3>
@@ -243,12 +155,133 @@
                         <input type="range" id="negativo" class="input-rango" min="0" max="1" value="0" step="0.1">
                     </div>       
                 </div>
-                <button class="boton-reestablecer" id="restablecer-filtros">Reestablecer filtros</button>
+
+            <!-- *** Botón de reseteo de filtros *** -->    
+
+                <button class="boton-reestablecer" id="restablecer-filtros" aria-label="Reestablecer todos los filtros anteriores">Reestablecer filtros</button>
             </form>
-            
+
+            <!-- EDITOR DE TEXTO -->
+
+            <form class="formulario formulario-texto-oculto" id="formulario-texto">
+                <h2>TEXTO</h2>
+
+            <!-- *** Ingreso de texto superior e inferior *** -->  
+
+                <div>
+                    <label for="texto-superior-input">Superior</label>
+                    <input type="text" id="texto-superior-input" value="TEXTO SUPERIOR" class="input-texto" aria-label="Ingresa el texto superior del meme">
+                </div>
+                <div class="sin-texto-check">
+                    <input type="checkbox" id="check-superior">
+                    <label for="check-superior">Sin texto superior</label>
+                </div>
+    
+                <div>
+                    <label for="texto-inferior-input">Inferior</label>
+                    <input type="text" id="texto-inferior-input" value="TEXTO INFERIOR" class="input-texto" aria-label="Ingresa el texto inferior del meme">
+                </div>
+                <div class="sin-texto-check">
+                    <input type="checkbox" id="check-inferior">
+                    <label for="check-inferior">Sin texto inferior</label>
+                </div>
+
+            <!-- *** Tipo de fuente *** -->  
+                
+                <div class="selector-fuente">
+                    <label for="opcion-fuente">Fuente</label>
+                    <select name="option" id="opcion-fuente" class="selector" aria-label="Selección del tipo de fuente">
+                        <option value="arial">Arial</option>
+                        <option value="arial black">Arial Black</option>
+                        <option value="american type writer">American Type Writer</option>
+                        <option value="andale mono">Andale Mono</option>
+                        <option value="verdana">Verdana</option>
+                        <option value="helvetica">Helvética</option>
+                        <option value="impact">Impact</option>
+                    </select>
+                </div>
+
+             <!-- *** Tamaño de fuente y alineación *** -->     
+
+                <div class= "propiedades-letra">
+                    <input id="input-tamano" type="number" value="40">
+                    <div class="botones-alineacion">
+                        <button id="izquierda" class="boton-alineacion" aria-label="Justificar texto a la izquierda">
+                            <i class="fas fa-align-left"></i>
+                        </button>
+                        <button id="centro" class="boton-alineacion" aria-label="Justificar texto al centro">
+                            <i class="fas fa-align-center"></i>
+                        </button>
+                        <button id="derecha" class="boton-alineacion" aria-label="Justificar texto a la derecha">
+                            <i class="fas fa-align-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+            <!-- *** Color de letra y de fondo de letra  *** -->     
+
+                <div class="fila color-fondo"> 
+                    <div class="columna">
+                        <label for="color-letra">COLOR</label>
+                        <div class="fila color">
+                            <input type="color" id="color-letra" value=#102034 aria-label="Selección de color de texto">
+                            <span class="código-color-texto">#00000</span>
+                        </div>
+                    </div>
+                    <div class="columna">
+                        <label for="color-fondo">FONDO</label>
+                        <div class="fila color">
+                            <input type="color" id="color-fondo" value="#FFFFFF" aria-label="Selección de color del fondo del texto">
+                            <span class="código-color-texto">#fffff</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sin-fondo-check">
+                    <input type="checkbox" id="check-sin-fondo">
+                    <label for="check-sin-fondo">Fondo transparente</label>
+                </div>
+    
+            <!-- *** Controno de letra *** -->  
+
+                <div class="columna">
+                    <h3>Contorno</h3>
+                    <div class="botones-contorno">
+                        <button id="sin-contorno" class="boton-contorno" aria-label="Texto sin contorno">Ninguno</button>
+                        <button id="contorno-claro" class="boton-contorno" aria-label="Texto con contorno claro">Claro</button>
+                        <button id="contorno-oscuro" class="boton-contorno" aria-label="Texto con contorno oscuro">Oscuro</button>
+                    </div>
+                </div>
+
+            <!-- *** Espaciado *** --> 
+
+                <div>
+                    <label>Espaciado</label>
+                    <input id="espaciado" type="number" value="35" min="10" max="50" >
+                </div>
+
+            <!-- *** Interlineado *** --> 
+    
+                <div>
+                    <label for="interlineado">Interlineado</label>
+                    <select name="interlineado" id="interlineado" class="selector">
+                        <option value="0.8">0.8</option>
+                        <option value="1">1</option>
+                        <option value="1.2">1.2</option>
+                        <option value="1.5">1.5</option>
+                        <option value="2">2</option>
+                        <option value="2.5">2.5</option>
+                    </select>
+                </div>
+            </form>
+     
         </aside>
     </div>
     <script src="./js/main.js"></script>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js" integrity="sha512-wUa0ktp10dgVVhWdRVfcUO4vHS0ryT42WOEcXjVVF2+2rcYBKTY7Yx7JCEzjWgPV+rj2EDUr8TwsoWF6IoIOPg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" integrity="sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw==" crossorigin="anonymous"></script>
+
+  
 </body>
 </html>
 

@@ -51,6 +51,23 @@ botonModoOscuro.addEventListener('click', () => {
 })
 
 
+// ************** Descarga de meme **********************
+
+const botonDescarga = document.getElementById('boton-descarga');
+const memeCanvas = document.getElementById('meme-canvas');
+
+
+const descargarImagen = () => {
+    domtoimage.toBlob(memeCanvas)
+        .then(function (blob) {
+            saveAs(blob,'meme.png');
+        });
+}
+
+botonDescarga.addEventListener('click', () => descargarImagen())
+
+
+
 // ************** Funcionalidades de imagen **********************
 
 const espacioSuperior = document.getElementById('espacio-superior');
@@ -60,10 +77,12 @@ const propiedadFondo = document.getElementById('propiedad-fondo');
 const filtrosRangos = document.getElementsByClassName('input-rango');
 const url = document.getElementById('url');
 const fondoColor = document.getElementById('fondo-color');
+const codigoColorimagen = document.getElementById('código-color-imagen');
 const restrablecerFiltros = document.getElementById('restablecer-filtros');
 
 
 // URL
+
 
 url.addEventListener('keyup', () => {
     const urlImg = url.value;
@@ -75,8 +94,10 @@ url.addEventListener('keyup', () => {
 // Fondo
 
 fondoColor.addEventListener('input', () => {
-    imagenMeme.style.backgroundColor = fondoColor.value
-    imagenMeme.style.backgroundColor = fondoColor.value
+    imagenMeme.style.backgroundColor = fondoColor.value;
+    imagenMeme.style.backgroundColor = fondoColor.value;
+    codigoColorimagen.innerHTML = `${fondoColor.value}`;
+
 })
 
 // Mix blend de fondo
@@ -88,7 +109,7 @@ propiedadFondo.addEventListener('change', () => {
 // Filtros rangos
 
 const filtrosMeme = () => {
-    imagenMeme.style.filter = `brightness(${filtrosRangos[0].value}) opacity(${filtrosRangos[1].value}) contrast(${filtrosRangos[2].value}%) blur(${filtrosRangos[3].value}px) grayscale(${filtrosRangos[4].value}%) sepia(${filtrosRangos[5].value}%) hue-rotate(${filtrosRangos[6].value}deg) saturate(${filtrosRangos[7].value}%) invert(${filtrosRangos[8].value})`
+    imagenMeme.style.filter = `brightness(${filtrosRangos[0].value}) opacity(${filtrosRangos[1].value}) contrast(${filtrosRangos[2].value}%) blur(${filtrosRangos[3].value}px) grayscale(${filtrosRangos[4].value}%) sepia(${filtrosRangos[5].value}%) hue-rotate(${filtrosRangos[6].value}deg) saturate(${filtrosRangos[7].value}%) invert(${filtrosRangos[8].value})`;
 }
 
 filtrosRangos[0].addEventListener('change', filtrosMeme);
@@ -137,6 +158,7 @@ const centro = document.getElementById('centro');
 const derecha = document.getElementById('derecha');
 const colorLetra = document.getElementById('color-letra');
 const colorFondo = document.getElementById('color-fondo');
+const codigoColorTexto = document.getElementsByClassName('código-color-texto');
 const checkSinFondo = document.getElementById('check-sin-fondo');
 const sinContorno = document.getElementById('sin-contorno');
 const contornoClaro = document.getElementById('contorno-claro');
@@ -150,7 +172,7 @@ const interlineado = document.getElementById('interlineado');
 
 textoSuperiorInput.addEventListener('keyup', () => textoSuperior.innerHTML = textoSuperiorInput.value);
 
-textoInferiorInput.addEventListener('keyup', () => textoInferior.innerHTML = textoInferiorInput.value)
+textoInferiorInput.addEventListener('keyup', () => textoInferior.innerHTML = textoInferiorInput.value);
 
 // Sin texto superior o inferior
 
@@ -212,6 +234,7 @@ derecha.addEventListener('click', (e) => {
  colorLetra.addEventListener('input', () => {
     textoSuperior.style.color = colorLetra.value;
     textoInferior.style.color = colorLetra.value;
+    codigoColorTexto[0].innerHTML = `${colorLetra.value}`;
  })
 
 
@@ -220,20 +243,30 @@ derecha.addEventListener('click', (e) => {
 colorFondo.addEventListener('input', () => {
     espacioSuperior.style.backgroundColor = colorFondo.value;
     espacioInferior.style.backgroundColor = colorFondo.value;
+    codigoColorTexto[1].innerHTML = `${colorFondo.value}`;
 })
 
 // Fondo transparente . revisar, no es la función
 
-checkSinFondo.addEventListener('click', () => {
-    if (checkSinFondo.checked){
-    espacioSuperior.style.backgroundColor = 'transparent'
-    espacioInferior.style.backgroundColor = 'transparent'
-    } else {
-        espacioSuperior.style.backgroundColor = colorFondo.value;
-        espacioInferior.style.backgroundColor = colorFondo.value;
-    }
+// checkSinFondo.addEventListener('click', () => {
+//     if (checkSinFondo.checked){
+//         imagenMeme.classList.remove('meme-imagen');
+//         imagenMeme.style.height = '70vh';
+//         espacioSuperior.style.backgroundColor = 'transparent'
+//         espacioSuperior.style.width = '100px';
+//         espacioSuperior.classList.remove('espacio-superior');
+//         espacioSuperior.style.position = 'relative'
+//         espacioInferior.classList.remove('espacio-inferior');
+//         espacioInferior.style.backgroundColor = 'transparent'
+//         espacioSuperior.style.height = '200px';
+//         espacioInferior.style.position = 'relative'
+
+
+//     } else {
+        
+//     }
        
-})
+// })
 
 // Contorno
 
@@ -278,3 +311,6 @@ interlineado.addEventListener('change', () => {
 
 
 // ************** Fin de funcionalidades de texto **********************
+
+
+

@@ -1,11 +1,14 @@
 // ************** Panel lateral alternado (imagen y texto) **********************
 
+// ---elementos del html---
+
 const botonImg = document.getElementById('boton-img');
 const botonTexto = document.getElementById('boton-texto');
 const aside = document.getElementById('aside');
 const formularioTexto = document.getElementById('formulario-texto');
 const formularioImagen = document.getElementById('formulario-imagen');
 
+// ---funciones y eventos---
 
 botonImg.addEventListener('click', () => {
     aside.classList.remove('aside-oculto');
@@ -24,7 +27,11 @@ botonTexto.addEventListener('click', () => {
 
 // ************** Cierre de panel lateral **********************
 
+// ---elementos del html---
+
 const cierreAside = document.getElementById('cierre-aside');
+
+// ---funciones y eventos---
 
 cierreAside.addEventListener('click',() => {
     aside.style.display = 'none';
@@ -35,8 +42,12 @@ cierreAside.addEventListener('click',() => {
 
 // ************** Botón modo claro/modo oscuro **********************
 
+// ---elementos del html---
+
 const botonModoClaro = document.getElementById('boton-modo-claro');
 const botonModoOscuro = document.getElementById('boton-modo-oscuro');
+
+// ---funciones y eventos---
 
 botonModoClaro.addEventListener('click', () => {
     botonModoClaro.classList.add('ocultar');
@@ -53,9 +64,12 @@ botonModoOscuro.addEventListener('click', () => {
 
 // ************** Descarga de meme **********************
 
+// ---elementos del html---
+
 const botonDescarga = document.getElementById('boton-descarga');
 const memeCanvas = document.getElementById('meme-canvas');
 
+// ---funciones y eventos---
 
 const descargarImagen = () => {
     domtoimage.toBlob(memeCanvas)
@@ -70,6 +84,8 @@ botonDescarga.addEventListener('click', () => descargarImagen())
 
 // ************** Funcionalidades de imagen **********************
 
+// ---elementos del html---
+
 const espacioSuperior = document.getElementById('espacio-superior');
 const imagenMeme = document.getElementById('imagen-meme');
 const espacioInferior = document.getElementById('espacio-inferior');
@@ -80,6 +96,7 @@ const fondoColor = document.getElementById('fondo-color');
 const codigoColorimagen = document.getElementById('código-color-imagen');
 const restrablecerFiltros = document.getElementById('restablecer-filtros');
 
+// ---funciones y eventos---
 
 // URL
 
@@ -141,6 +158,8 @@ restrablecerFiltros.addEventListener('click', (e) => {
 
 // ************** Funcionalidades de texto **********************
 
+// ---elementos del html---
+
 const textoSuperiorInput = document.getElementById('texto-superior-input');
 const textoInferiorInput = document.getElementById('texto-inferior-input');
 const textoSuperior = document.getElementById('texto-superior');
@@ -162,7 +181,7 @@ const contornoOscuro = document.getElementById('contorno-oscuro');
 const espaciado = document.getElementById('espaciado');
 const interlineado = document.getElementById('interlineado');
 
-
+// ---funciones y eventos---
 
 // Pintar texto en meme
 
@@ -210,7 +229,6 @@ inputTamano.addEventListener('keyup', () => {
 })
 
 
-
 // Alineación de la letra
 
 izquierda.addEventListener('click', (e) => {
@@ -241,12 +259,6 @@ const cambioColorDeLetra = () => {
 
 colorLetra.addEventListener('input', () => cambioColorDeLetra());
 
-//  colorLetra.addEventListener('input', () => {
-//     textoSuperior.style.color = colorLetra.value;
-//     textoInferior.style.color = colorLetra.value;
-//     codigoColorTexto[0].innerHTML = `${colorLetra.value}`;
-//  })
-
 
 //  Color de fondo de la letra
 
@@ -259,14 +271,7 @@ const cambioColorFondoLetra = () => {
 colorFondo.addEventListener('input', () => cambioColorFondoLetra());
 
 
-// colorFondo.addEventListener('input', () => {
-//     espacioSuperior.style.backgroundColor = colorFondo.value;
-//     espacioInferior.style.backgroundColor = colorFondo.value;
-//     codigoColorTexto[1].innerHTML = `${colorFondo.value}`;
-// })
-
-// Fondo transparente . revisar, no es la función
-
+// Fondo transparente 
 
 checkSinFondo.addEventListener('click', () => {
     if(checkSinFondo.checked){
@@ -280,8 +285,8 @@ checkSinFondo.addEventListener('click', () => {
         espacioInferior.style.position = 'static';
         espacioSuperior.style.position = 'static';
         espacioInferior.style.marginTop = '0';
-        cambioColorDeLetra()
-        cambioColorFondoLetra()
+        cambioColorDeLetra();
+        cambioColorFondoLetra();
     }      
 })
 
@@ -327,7 +332,6 @@ espaciado.addEventListener('keyup', () => {
     textoInferior.style.paddingBottom = `${espaciado.value}px`;
 }
 )
-
 
 
 // Interlineado

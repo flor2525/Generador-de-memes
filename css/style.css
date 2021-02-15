@@ -100,6 +100,7 @@ body{
 .ocultar{
     display: none;
 }
+
 /* FIN ESTILOS ENCABEZADO */
 
 /* INICIO ESTILOS SECCIÓN MEME */
@@ -142,15 +143,14 @@ padding-top: 15px;
     background-size: cover;    
 }
 
-.espacio-superior p, .espacio-inferior p{
+.texto-superior, .texto-interior{
     color: black;
     font-size: 40px;
     font-family: 'Alatsi', sans-serif;
     text-transform: uppercase;
     text-align: center;
     padding: 0 15px;
-    /* -webkit-text-stroke: 1px red; */
-  
+
 }
 
 .boton-descarga{
@@ -260,9 +260,14 @@ padding-top: 15px;
     border: none;
     width: 100%;
     height: 25px;
-    padding: 5px 10px;
-    
+    padding: 5px 10px; 
+    margin-top: 7px;  
 }
+
+.sin-margen{
+    margin-top: 0px; 
+}
+
 
 /* fin estilos comunes*/
 
@@ -281,7 +286,8 @@ padding-top: 15px;
 .boton-reestablecer{
     padding: 0.7rem;
     margin-top: 15px;
-    color: var(--ColorFuente); 
+    color: var(--ColorFuente);
+    font-weight: bold;
     background-color: var(--ColorFormulario);
     outline: none;
     border: none;
@@ -326,6 +332,7 @@ padding-top: 15px;
 .boton-alineacion{
     padding: 7px;
     background-color: var(--ColorFormulario);
+    color: var(--ColorFuente);
     outline-style: none;
     border: none;
     border-radius: 5px;
@@ -342,6 +349,7 @@ margin-bottom: 1rem;
 .boton-contorno{
    padding: 7px;
    background-color: var(--ColorFormulario);
+   color: var(--ColorFuente);
    outline-style: none;
    border: none;
    border-radius: 5px;
@@ -349,6 +357,7 @@ margin-bottom: 1rem;
 
 .boton-contorno:hover , .boton-alineacion:hover{
     background-color: rgb(179, 179, 179);
+    color: #121212;
 }
 
 .contorno-blanco{
@@ -373,7 +382,7 @@ margin-bottom: 1rem;
      width: 400px;
     }
 
-    .espacio-superior p, .espacio-inferior p{
+    .texto-superior, .texto-interior{
         font-size: 25px;
     }
 }
@@ -383,7 +392,7 @@ margin-bottom: 1rem;
         height: 250px;
         width: 250px;
     }
-    .espacio-superior p, .espacio-inferior p{
+    .texto-superior, .texto-interior{
         font-size: 15px;
     }
 
@@ -411,14 +420,14 @@ margin-bottom: 1rem;
     }
  
     .input-rango{
-        height: 6px;
+        height: 8px;
         margin: 3px 0;
        
     }
 
     .input-texto, input[type=number]{
-        height: 8px;
-        padding: 8px;
+        height: 12px;
+        padding: 12px;
         margin-bottom: 3%;
         margin-top: 5px;
         outline-style: none;

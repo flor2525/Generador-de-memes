@@ -95,16 +95,12 @@ url.addEventListener('keyup', () => {
 
 fondoColor.addEventListener('input', () => {
     imagenMeme.style.backgroundColor = fondoColor.value;
-    imagenMeme.style.backgroundColor = fondoColor.value;
     codigoColorimagen.innerHTML = `${fondoColor.value}`;
-
 })
 
 // Mix blend de fondo
 
-propiedadFondo.addEventListener('change', () => {
-    imagenMeme.style.mixBlendMode = propiedadFondo.value;
-})
+propiedadFondo.addEventListener('change', () => imagenMeme.style.mixBlendMode = propiedadFondo.value)
 
 // Filtros rangos
 
@@ -203,10 +199,16 @@ opcionFuente.addEventListener('change', () => {
 
 // Tamaño de la fuente 
 
+inputTamano.addEventListener('input', () => {
+    textoSuperior.style.fontSize = `${inputTamano.value}px`;
+    textoInferior.style.fontSize = `${inputTamano.value}px`;
+})
+
 inputTamano.addEventListener('keyup', () => {
     textoSuperior.style.fontSize = `${inputTamano.value}px`;
     textoInferior.style.fontSize = `${inputTamano.value}px`;
 })
+
 
 
 // Alineación de la letra
@@ -231,42 +233,57 @@ derecha.addEventListener('click', (e) => {
 
 // Color de la letra
 
- colorLetra.addEventListener('input', () => {
+const cambioColorDeLetra = () => {
     textoSuperior.style.color = colorLetra.value;
     textoInferior.style.color = colorLetra.value;
     codigoColorTexto[0].innerHTML = `${colorLetra.value}`;
- })
+}
+
+colorLetra.addEventListener('input', () => cambioColorDeLetra());
+
+//  colorLetra.addEventListener('input', () => {
+//     textoSuperior.style.color = colorLetra.value;
+//     textoInferior.style.color = colorLetra.value;
+//     codigoColorTexto[0].innerHTML = `${colorLetra.value}`;
+//  })
 
 
 //  Color de fondo de la letra
 
-colorFondo.addEventListener('input', () => {
+const cambioColorFondoLetra = () => {
     espacioSuperior.style.backgroundColor = colorFondo.value;
     espacioInferior.style.backgroundColor = colorFondo.value;
     codigoColorTexto[1].innerHTML = `${colorFondo.value}`;
-})
+}
+
+colorFondo.addEventListener('input', () => cambioColorFondoLetra());
+
+
+// colorFondo.addEventListener('input', () => {
+//     espacioSuperior.style.backgroundColor = colorFondo.value;
+//     espacioInferior.style.backgroundColor = colorFondo.value;
+//     codigoColorTexto[1].innerHTML = `${colorFondo.value}`;
+// })
 
 // Fondo transparente . revisar, no es la función
 
-// checkSinFondo.addEventListener('click', () => {
-//     if (checkSinFondo.checked){
-//         imagenMeme.classList.remove('meme-imagen');
-//         imagenMeme.style.height = '70vh';
-//         espacioSuperior.style.backgroundColor = 'transparent'
-//         espacioSuperior.style.width = '100px';
-//         espacioSuperior.classList.remove('espacio-superior');
-//         espacioSuperior.style.position = 'relative'
-//         espacioInferior.classList.remove('espacio-inferior');
-//         espacioInferior.style.backgroundColor = 'transparent'
-//         espacioSuperior.style.height = '200px';
-//         espacioInferior.style.position = 'relative'
 
-
-//     } else {
-        
-//     }
-       
-// })
+checkSinFondo.addEventListener('click', () => {
+    if(checkSinFondo.checked){
+    imagenMeme.style.backgroundSize = 'cover';
+    espacioInferior.style.position = 'absolute';
+    espacioInferior.style.backgroundColor = 'transparent';
+    espacioInferior.style.marginTop = '33rem';
+    espacioSuperior.style.position = 'absolute';
+    espacioSuperior.style.backgroundColor = 'transparent';
+    } else {
+        espacioInferior.style.position = 'static';
+        espacioSuperior.style.position = 'static';
+        espacioInferior.style.marginTop = '0';
+        cambioColorDeLetra()
+        cambioColorFondoLetra()
+    }      
+})
 
 // Contorno
 
@@ -294,6 +311,15 @@ sinContorno.addEventListener('click', (e) => {
 
 // Espaciado
 
+
+espaciado.addEventListener('input', () => {
+    textoSuperior.style.paddingTop = `${espaciado.value}px`;
+    textoSuperior.style.paddingBottom = `${espaciado.value}px`;
+    textoInferior.style.paddingTop = `${espaciado.value}px`;
+    textoInferior.style.paddingBottom = `${espaciado.value}px`;
+}
+)
+
 espaciado.addEventListener('keyup', () => {
     textoSuperior.style.paddingTop = `${espaciado.value}px`;
     textoSuperior.style.paddingBottom = `${espaciado.value}px`;
@@ -301,6 +327,8 @@ espaciado.addEventListener('keyup', () => {
     textoInferior.style.paddingBottom = `${espaciado.value}px`;
 }
 )
+
+
 
 // Interlineado
 
@@ -311,6 +339,4 @@ interlineado.addEventListener('change', () => {
 
 
 // ************** Fin de funcionalidades de texto **********************
-
-
 
